@@ -28,6 +28,7 @@ Training/Evaluating the DAHiTrA model:
 
 3. Execute the eval.sh file to evaluate the model
 
+Checkpoint available at: https://1sfu-my.sharepoint.com/:u:/g/personal/mya144_sfu_ca/ETsRRC-XlrZLkFfZL1D7o80BzeYhvFWMEf7SgX5Y87zRhw?e=NugZgs
 
 Executing the SAM2 pipeline for Image Segmentation:
 
