@@ -39,5 +39,9 @@ Execute the Sam2_finetuning.ipynb file to perform the enhanced image segmentatio
 ## Results 
 The results of the image segmentation at saved in the vis and vis2 directories. 
 
+## Poster
+![Project Poster]([https://github.com/Maaheen11/Building-Damage-Assessment-II/blob/main/Poster.pdf])
+
+
 ## Acknowledgment 
 We thank https://github.com/nka77/DAHiTra.git for providing the project publicly. Our improvements were build on this project. 
