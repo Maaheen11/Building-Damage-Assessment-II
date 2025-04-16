@@ -36,6 +36,8 @@ SAM2 is initialized using the sam2.1_hiera_small.pt and sam2.1_hiera_small.yaml 
 
 Execute the Sam2_finetuning.ipynb file to perform the enhanced image segmentation of damaged buildings. 
 
+## Results 
+The results of the image segmentation at saved in the vis and vis2 directories. 
 
 ## Acknowledgment 
 We thank https://github.com/nka77/DAHiTra.git for providing the project publicly. Our improvements were build on this project. 
