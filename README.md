@@ -6,8 +6,8 @@ This project enhances the DAHiTrA (Damage Assessment using Hi-Resolution imagery
 Existing models like DAHiTrA tend to merge closely located buildings in post-disaster imagery and often miss small structures entirely. This limits their usability in high-stakes, real-world disaster response scenarios. This project addresses these limitations by extending DAHiTrA with prompt-based segmentation and edge-sensitive loss functions.
 
 ## Features
-Edge Aware Loss Integration: Achieves more precise building boundary segmentation.
-SAM2-based Boundary Refinement: Improves building separation and overall segmentation accuracy.
+1. Edge Aware Loss Integration: Achieves more precise building boundary segmentation.
+2. SAM2-based Boundary Refinement: Improves building separation and overall segmentation accuracy.
 
 ## Installation  
 
