@@ -1,85 +1,40 @@
-# DAHiTra: UNET Architecture with Hierarchical Transformers for Automated Building Damage Assessment Using Satellite Imagery
+# Building-Damage-Assessment-Using-Satellite-Imagery
 
-A novel transformer-based network model is presented for building damage assessment which leverages hierarchical spatial features of multiple resolutions and captures temporal difference in feature domain after applying transformer encoder
-on the spatial features. The proposed network achieves state of the art performance while tested on a large-scale disaster damage dataset (xBD) for building localization and damage classification, as well as on LEVIR-CD dataset for change detection
-tasks.
+This project enhances the DAHiTrA (Damage Assessment using Hi-Resolution imagery and Transformer Architectures) model to improve the separation of adjacent buildings in post-disaster satellite imagery. The primary goal is to increase the accuracy of damage assessment by preserving fine-grained building boundaries using Edge-Aware Loss and SAM2 (Segment Anything Model).
 
-Publication accepted in CACAIE (peer-reviewed journal): [https://onlinelibrary.wiley.com/doi/10.1111/mice.12981](https://onlinelibrary.wiley.com/doi/10.1111/mice.12981)
+## Introduction
+Existing models like DAHiTrA tend to merge closely located buildings in post-disaster imagery and often miss small structures entirely. This limits their usability in high-stakes, real-world disaster response scenarios. This project addresses these limitations by extending DAHiTrA with prompt-based segmentation and edge-sensitive loss functions.
 
-Arxiv link: https://arxiv.org/abs/2208.02205
-## Results
+## Features
+Edge Aware Loss Integration: Achieves more precise building boundary segmentation.
+SAM2-based Boundary Refinement: Improves building separation and overall segmentation accuracy.
 
-#### Average Quantitative Results for Damage Classification: xBD dataset
-![alt text](report/xBD_results.png)
+## Installation  
 
-#### Average Quantitative Results for Change Detection: LEVIR-CD dataset
-![alt text](report/LEVIR_results.png)
+To clone this repo: 
 
-
-## Training the model
-
-#### Requirements
 ```
-Python 3.6
-pytorch 1.6.0
-torchvision 0.7.0
-einops  0.3.0
-```
-
-#### Installation
-
-Clone this repo:
-```shell
-git clone https://github.com/nka77/DamageAssessment.git
+git clone https://github.com/Maaheen11/Building-Damage-Assessment-II.git
 cd DamageAssessment
 ```
 
-#### Training the model
-Please refer the training script `run_cd.sh` and the evaluation script `eval.sh` in the folder `scripts`. 
+Training/Evaluating the DAHiTrA model: 
 
-Training goal specific files:
-1. Classification: xBD_code/train.py
-2. Localization: xBD_code/train_loc.py
-3. Domain adaptation: xBD_code/train_adapt.py
+1. Copy the xBD and LEVIR-CD dataset in the following directories 
+  xBD -> data/xbd/train 
+  LEVIR-CD -> data/LEVIR-CD
 
-### Dataset Preparation
+2. Execute the run_cd.sh file to train the model
 
-#### Data Download 
-
-1. xBD: https://xview2.org/dataset
-2. LEVIR-CD: https://justchenhao.github.io/LEVIR/
-
-#### Required data format
-```
-"""
-xBD damage classification data set with pixel-level binary labels；
-├─train
-    |-images
-    ├─masks
-├─tier3
-    |-images
-    ├─masks
-├─test
-    |-images
-"""
-```
-`train` and `tier3` : pre-disaster and post-disaster images;
-`masks`: 5 class label maps;
-```
-"""
-LEVIR Change detection data set with pixel-level binary labels；
-├─A
-├─B
-├─label
-└─list
-"""
-```
-`A`: images of t1 phase;
-`B`:images of t2 phase;
-`label`: label maps;
-`list`: contains `train.txt, val.txt and test.txt`, each file records the image names (XXX.png) in the change detection dataset.
+3. Execute the eval.sh file to evaluate the model
 
 
-## Acknowledgements
+Executing the SAM2 pipeline for Image Segmentation:
 
-We thank https://github.com/justchenhao/BIT_CD.git for providing the code base publicly. We develop our code on the top of this repository.
+SAM2 is initialized using the sam2.1_hiera_small.pt and sam2.1_hiera_small.yaml file located in the sam2/configs/sam2.1 directory. Make sure these files exists. 
+
+Execute the Sam2_finetuning.ipynb file to perform the enhanced image segmentation of damaged buildings. 
+
+
+## Acknowledgment 
+We thank https://github.com/nka77/DAHiTra.git for providing the project publicly. Our improvements were build on this project. 
